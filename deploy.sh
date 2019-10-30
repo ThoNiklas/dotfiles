@@ -25,22 +25,6 @@ prompt_install() {
 	fi
 }
 
-install_coala() {
-	echo -n "Coala is not installed. Would you like to install it? (y/n) " >&2
-	old_stty_cfg=$(stty -g)
-	stty raw -echo
-	answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
-	stty $old_stty_cfg && echo
-	if echo "$answer" | grep -iq "^y" ;then
-		# This could def use community support
-		if [ -x "$(command -v pip3)" ]; then
-			pip3 install --user coala-bears
-		else
-			echo "Pls install coala-bears by yourself - ERROR"
-		fi 
-	fi
-}
-
 check_for_software() {
 	echo "Checking to see if $1 is installed"
 	if ! [ -x "$(command -v $1)" ]; then
@@ -93,8 +77,6 @@ check_for_software vim
 echo
 check_for_software tmux
 echo
-install_coala
-
 check_default_shell
 
 echo
@@ -125,9 +107,6 @@ ln -s ${PWD}/vim/vim ~/.vim
 
 # Link tmux related files
 # ln -s ${PWD}/tmux/tmux.conf ~/.tmux.conf
-
-
-source ~/.zshrc
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
