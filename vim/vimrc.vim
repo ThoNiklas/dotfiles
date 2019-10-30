@@ -5,7 +5,6 @@
 	set tabstop=4
 	set shiftwidth=4
 	set dir=/tmp/
-	set relativenumber 
 	set number
 
 	autocmd Filetype html setlocal sw=2 expandtab
@@ -44,7 +43,6 @@
 
 " Language Specific
 	" Tabs
-		so ~/dotfiles/vim/sleuth.vim
 
 	" Typescript
 		autocmd BufNewFile,BufRead *.ts set syntax=javascript
@@ -89,10 +87,17 @@
 	autocmd FileChangedShellPost *
 	  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-" Future stuff
-	"Swap line
-	"Insert blank below and above
 
-" Fix for: https://github.com/fatih/vim-go/issues/1509
+" Pathogen Setup
+	execute pathogen#infect()
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 1
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+
 
 filetype plugin indent on

@@ -1,3 +1,4 @@
+#!/bin/bash
 prompt_install() {
 	echo -n "$1 is not installed. Would you like to install it? (y/n) " >&2
 	old_stty_cfg=$(stty -g)
@@ -20,6 +21,22 @@ prompt_install() {
 
 		else
 			echo "I'm not sure what your package manager is! Please install $1 on your own and run this deploy script again. Tests for package managers are in the deploy script you just ran starting at line 13. Feel free to make a pull request at https://github.com/parth/dotfiles :)" 
+		fi 
+	fi
+}
+
+install_coala() {
+	echo -n "Coala is not installed. Would you like to install it? (y/n) " >&2
+	old_stty_cfg=$(stty -g)
+	stty raw -echo
+	answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+	stty $old_stty_cfg && echo
+	if echo "$answer" | grep -iq "^y" ;then
+		# This could def use community support
+		if [ -x "$(command -v pip3)" ]; then
+			pip3 install --user coala-bears
+		else
+			echo "Pls install coala-bears by yourself - ERROR"
 		fi 
 	fi
 }
@@ -76,6 +93,7 @@ check_for_software vim
 echo
 check_for_software tmux
 echo
+install_coala
 
 check_default_shell
 
@@ -89,13 +107,27 @@ if echo "$answer" | grep -iq "^y" ;then
 	mv ~/.zshrc ~/.zshrc.old
 	mv ~/.tmux.conf ~/.tmux.conf.old
 	mv ~/.vimrc ~/.vimrc.old
+	mv ~/.vim ~/.vim.old
+	mv ~/.zsh ~/.zsh.old
 else
 	echo -e "\nNot backing up old dotfiles."
 fi
 
-printf "source '$HOME/dotfiles/zsh/zshrc_manager.sh'" > ~/.zshrc
-printf "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
-printf "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+# Link zsh related files
+rm -rf ~/.zsh ~/.zshrc
+ln -s ${PWD}/zsh/zshrc.sh ~/.zshrc
+ln -s ${PWD}/zsh ~/.zsh
+
+# Link vim related files
+rm -rf ~/.vimrc ~/.vim
+ln -s ${PWD}/vim/vimrc.vim ~/.vimrc
+ln -s ${PWD}/vim/vim ~/.vim
+
+# Link tmux related files
+# ln -s ${PWD}/tmux/tmux.conf ~/.tmux.conf
+
+
+source ~/.zshrc
 
 echo
 echo "Please log out and log back in for default shell to be initialized."
