@@ -20,6 +20,3 @@ plugins=(
 source $HOME/.zsh/plugins/oh-my-zsh/oh-my-zsh.sh
 source $HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Setup ZSH Completion Service
-compinit
