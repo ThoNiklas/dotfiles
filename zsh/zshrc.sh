@@ -14,9 +14,12 @@ plugins=(
 	git
 	osx
 	docker
-	vi-mode
 )
 
+source $HOME/.profile
 source $HOME/.zsh/plugins/oh-my-zsh/oh-my-zsh.sh
-source $HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+alias "pdftex"="latexdockercmd.sh latexmk -cd -f -interaction=batchmode -pdf"
+alias "cleantex"="latexdockercmd.sh latexmk -c"
+
