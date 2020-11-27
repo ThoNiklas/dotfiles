@@ -1,11 +1,11 @@
 " Basics
-    set backupdir=~/.vim/tmp/
-    set directory=~/.vim/tmp/
-    set undodir=~/.vim/tmp/
+    set backupdir=/tmp/
+    set directory=/tmp/
+    set undodir=/tmp/
     set runtimepath+=~/.vim/ftplugin
     set nocompatible " explicitly get out of vi-compatible mode
     set noexrc " don't use local version of .(g)vimrc, .exrc
-    set background=dark " we plan to use a dark background
+    set background=light " we plan to use a dark background
     set fenc=utf-8 " UTF-8
     set cpoptions=aABceFsmq
     "             |||||||||
@@ -24,6 +24,8 @@
     endfunction
 " Plugins
     so ~/.vim/plugins.vim
+    " a.vim
+    map <C-e> :A<CR>
     " NerdTree
     map <C-o> :NERDTreeToggle<CR>
     " fzf
@@ -60,6 +62,7 @@
     let use_xhtml = 0
     let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{}, 'MruFile':{}, 'MruCmd':{}, 'Bookmark':{}, 'Tag':{}, 'TaggedFile':{}}
 " Vim UI
+    set tabpagemax=100
     set incsearch " BUT do highlight as you type you search phrase
     set laststatus=2 " always show the status line
     set lazyredraw " do not redraw while running macros

@@ -1,2 +1,4 @@
 .DS_Store
 *.swp
+vim/autoload/plug.vim.old
+vim/plugged/
