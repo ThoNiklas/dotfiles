@@ -31,6 +31,7 @@
     " fzf
     command! ProjectFiles execute 'Files' s:find_git_root()
     map ; :ProjectFiles<CR>
+    nnoremap <C-g> :Rg<CR>
 " General
     filetype plugin on " load filetype plugins/indent settings
     set autochdir " always switch to the current file directory
