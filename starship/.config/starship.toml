@@ -155,47 +155,47 @@ format = '[[($all_status$ahead_behind )](fg:text bg:love)]($style)'
 [nodejs]
 symbol = ""
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [c]
 symbol = " "
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [rust]
 symbol = ""
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [golang]
 symbol = ""
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [php]
 symbol = ""
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [java]
 symbol = " "
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [kotlin]
 symbol = ""
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [haskell]
 symbol = ""
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [python]
 symbol = ""
 style = "bg:rose"
-format = '[[ $symbol( $version) ](fg:text bg:rose)]($style)'
+format = '[[ $symbol( $version) ](fg:muted bg:rose)]($style)'
 
 [docker_context]
 symbol = ""
